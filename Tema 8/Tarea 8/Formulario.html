@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 8</title>
+</head>
+<body>
+    <h1>Formulario</h1>
+    <form id="formulario" action="" method="post">
+        <label for="texto">Escriba un texto sin números:</label><br><br>
+        <textarea id="texto" name="texto" required></textarea><br><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <div>
+        <p id="resultado"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.getElementById('formulario').addEventListener('submit', function(event) {
+            var texto = document.getElementById('texto').value;
+            var verificacion = /^[a-zA-Z\s]+$/;
+
+            event.preventDefault(); 
+
+            if (!verificacion.test(texto)) {
+                $("#resultado").html('<strong>El texto no es correcto porque contiene números.</strong>');
+            } else {
+                $("#resultado").text('El texto es correcto');
+            }
+        });
+    </script>
+
+</body>
+</html>

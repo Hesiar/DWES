@@ -1,0 +1,2 @@
+Esto es un archivo txt con un texto de ejemplo.
+Lore ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed

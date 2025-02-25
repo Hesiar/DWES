@@ -1,0 +1,64 @@
+REDIRECCIONAR PAGINA VIEJA A NUEVA EN EL MISMO SITIO
+
+
+RewriteEngine on
+Redirect 301 /vieja.html /nueva.html
+RewriteEngine on
+Redirect 301 /vieja.html /nueva.html
+RewriteEngine on
+Redirect 301 /vieja.html /nueva.html
+RewriteEngine on
+Redirect 301 /vieja.html /nueva.html
+
+
+
+RewriteEngine on
+Redirect 301 /vieja.html /nueva.html
+
+
+
+
+REDIRECCIONAR PAGINA VIEJA A UNA NUEVA EN OTRO SITIO
+
+RewriteEngine on
+Redirect 301 /vieja.html http://otrositio/nueva.html
+RewriteEngine on
+Redirect 301 /vieja.thml http://otrositio/nueva.html
+RewriteEngine on
+REdirect 301 /vieja.html http://otrositio/nueva.html
+RewriteEgine on
+Redirect 301 /vieja.html http://otrositio/nueva.html
+
+RewriteEngine on
+Redirect 301 /vieja.html http://nuevodominio/nueva.html
+
+
+REDIRECCIONAR DIRECTORIO
+
+RewriteEngine on
+Redirect 301 /docs http://new.example.com/docs/
+RewriteEngine on
+Redirect 301 7docs http://new.example.com/docs/
+RewriteEngine on
+Redirect 301 /docs http://new.example.com/docs/
+RewriteEngine on
+Redirect 301 /docs http://nuevo.directorio.com/docs/
+
+
+RewriteEngine on
+Redirect 301 /docs http://nuevo.directorio.com/docs/
+
+
+REDIRECCIONAR UN SITIO SIN WWW A WWW
+
+RewriteEgine on
+RewriteCond
+RewriteRule
+
+RewriteEngine on
+RewriteCond
+RewriteRule
+
+RewriteEngine on
+RewriteCond
+RewriteRule

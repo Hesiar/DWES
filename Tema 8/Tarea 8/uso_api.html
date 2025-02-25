@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Personajes de Rick y Morty</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        div{
+            border: 2px solid;
+            border-color: rgb(43, 226, 73);
+            border-radius: 20px;
+            padding: 10px;
+            text-align: center;
+            display: none;
+        }
+        #info{
+            border-color: blue;
+            margin: 20px;
+            width: 260px;
+
+            
+            display: inline-flex;
+            text-align: center;
+            justify-content: flex-end; 
+            align-items: center;
+        }
+        img {
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Busca Personajes de Rick y Morty</h1>
+    <label for="texto">Buscar Personaje:</label>
+    <input type="text" id="texto" placeholder="Escribe el nombre de un personaje">
+    
+    <h2>Resultados:</h2>
+    <div id="personajes"></div>
+
+    <script>
+        $(document).ready(function() {
+
+            /**
+            * La función va a manejar el evento que se produce al introducir un texto. 
+            * Buscará las coincidencias dentro de la Api de los personajes de Rick y Morty.
+            * 
+            * @param {string} query - El texto introducido por el usuario para realizar la búsqueda.
+            * @return {void} - No hay ningun resultado, pero se actualiza el DOM.
+            */
+
+            $('#texto').on('input', function() {
+                let query = $(this).val().toLowerCase();
+
+                if (query.length > 0) {
+                    $.ajax({
+                        url: `https://rickandmortyapi.com/api/character/?name=${query}`,
+                        method: 'GET',
+                        success: function(response) {
+                            if (response.results && response.results.length > 0) {
+                                $('#personajes').empty();
+                                $('div').show();
+
+                                response.results.forEach(function(character) {
+                                    $('#personajes').append(`
+                                        <div id="info">
+                                            <h3>${character.name}</h3>
+                                            <img src="${character.image}" alt="${character.name}" width="100">
+                                        </div>
+                                    `);
+                                });
+                            } else {
+                                $('#personajes').html('<p>No se encontraron personajes.</p>');
+                            }
+                        },
+                        error: function() {
+                            $('#personajes').html('<p>Hubo un error al obtener los datos.</p>');
+                        }
+                    });
+                } else {
+                    $('#personajes').empty();
+                    $('div').hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

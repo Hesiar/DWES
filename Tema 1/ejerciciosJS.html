@@ -1,0 +1,117 @@
+Ejercicio 1: Crear una alerta básica
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta Básica</title>
+</head>
+<body>
+    <button onclick="mostrarAlerta()">Haz clic aquí</button>
+
+    <script>
+        function mostrarAlerta() {
+            alert("¡Hola! Esta es una alerta.");
+        }
+    </script>
+</body>
+</html>
+
+Ejercicio 2: Confirmar una acción
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Acción</title>
+</head>
+<body>
+    <button onclick="confirmarAccion()">Haz clic para continuar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function confirmarAccion() {
+            const confirmacion = confirm("¿Estás seguro de que quieres continuar?");
+            const mensaje = confirmacion ? "Has decidido continuar." : "Has cancelado la acción.";
+            document.getElementById("resultado").innerText = mensaje;
+        }
+    </script>
+</body>
+</html>
+
+Ejercicio 3: Solicitar datos al usuario
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Nombre</title>
+</head>
+<body>
+    <button onclick="solicitarNombre()">Introduce tu nombre</button>
+
+    <script>
+        function solicitarNombre() {
+            const nombre = prompt("¿Cuál es tu nombre?");
+            if (nombre) {
+                alert("Hola, " + nombre + "! Bienvenido/a.");
+            } else {
+                alert("No introdujiste ningún nombre.");
+            }
+        }
+    </script>
+</body>
+</html>
+
+Ejercicio 4: Validación de formulario con alertas
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar Edad</title>
+</head>
+<body>
+    <form onsubmit="return validarEdad()">
+        <label for="edad">Introduce tu edad:</label>
+        <input type="number" id="edad" name="edad" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        function validarEdad() {
+            const edad = document.getElementById("edad").value;
+            if (edad >= 18) {
+                alert("Eres mayor de edad.");
+            } else {
+                alert("Eres menor de edad.");
+            }
+            return false;  // Para evitar que el formulario se envíe
+        }
+    </script>
+</body>
+</html>
+
+Ejercicio 5: Mostrar advertencia antes de salir de la página
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertencia de Salida</title>
+</head>
+<body>
+    <h1>Esta página te advertirá antes de que intentes salir.</h1>
+
+    <script>
+        window.onbeforeunload = function() {
+            return "Tienes cambios sin guardar. Si abandonas la página, podrías perder los datos.";
+        };
+    </script>
+</body>
+</html>
